@@ -2,8 +2,17 @@
  * AI Agent - Gemini 2.5 Pro
  */
 
+// Get API key from Vercel env or local config
+const getApiKey = () => {
+    try {
+        return import.meta.env?.VITE_GEMINI_API_KEY || window.CONFIG?.GEMINI_API_KEY || '';
+    } catch {
+        return window.CONFIG?.GEMINI_API_KEY || '';
+    }
+};
+
 const AI_CONFIG = {
-    apiKey: import.meta.env.VITE_GEMINI_API_KEY,
+    apiKey: getApiKey(),
     model: 'gemini-2.5-flash-lite',
     systemPrompt: `You are the AI assistant on Vansh Singhvi's portfolio website. You represent Vansh and speak on his behalf.
 
