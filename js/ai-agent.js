@@ -3,7 +3,7 @@
  */
 
 const AI_CONFIG = {
-    apiKey: window.CONFIG?.GEMINI_API_KEY || '', // Loaded from config.js
+    apiKey: import.meta.env.VITE_GEMINI_API_KEY,
     model: 'gemini-2.5-flash-lite',
     systemPrompt: `You are the AI assistant on Vansh Singhvi's portfolio website. You represent Vansh and speak on his behalf.
 
